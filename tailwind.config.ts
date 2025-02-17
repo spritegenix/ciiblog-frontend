@@ -11,6 +11,9 @@ export default {
       colors: {
         primary: "#26247b"
       },
+      transitionProperty: {
+        transform: "transform",
+      },
     },
   },
   plugins: [],
