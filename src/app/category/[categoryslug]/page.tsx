@@ -20,7 +20,7 @@ export async function generateMetadata({ params }) {
     },
   };
 }
-const page = async ({ params }: any) => {
+const page = async ({ params }) => {
   const { categoryslug } = await params;
   const filterData = blogsData.filter(
     (blog) => blog.category.toLowerCase() === categoryslug

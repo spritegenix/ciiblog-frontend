@@ -5,7 +5,7 @@ import React from 'react';
 // import { fetchCategoriesSSR } from '../_queryCall/ssr';
 import Layout from '@/components/layout/Layout';
 import { notFound } from 'next/navigation';
-import ExtractContent from '@/components/ExtractContent';
+import { extractTextFromHTML } from '@/components/ExtractContent';
 export async function generateMetadata({ params }) {
   const { blogslug } = await params;
   const post = blogsData.filter((blog) => blog.id === blogslug);
@@ -129,10 +129,10 @@ const page = async ({ params }) => {
                           {trends.title}
                         </p>
                         <p className="text-sm">
-                          <ExtractContent
-                            htmlContent={trends.content}
-                            number={100}
-                          />
+                          {extractTextFromHTML({
+                            htmlContent: trends.content,
+                            number: 100,
+                          })}
                         </p>
                         <Link
                           href={`/${trends.id}`}
